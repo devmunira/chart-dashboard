@@ -26,7 +26,7 @@ As a developer, My primary objective is to build a dynamic dashboard that allows
 
 ### 5. Demo
 
-- [@chart-dashboard](https://www.github.com/devmunira)
+- [@chart-dashboard](https://chart-dashboard-hazel.vercel.app/dashboard)
 
 
 ### 6. Tech Stack

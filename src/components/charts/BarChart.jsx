@@ -21,7 +21,7 @@ const BarChartComponent = ({fromDashboardComponent = false , content}) => {
       <div className='bg-slate-500 relative p-10 !max-w-[100%] !h-[70%] box-border overflow-hidden'>
         {
           barChart ? (<HighchartsReact
-          options={barChart}
+          options={fromDashboardComponent ? content.data : barChart}
           highcharts={Highcharts}
           ref={chartRef}
           containerProps={{ style: { position : 'absolute' , top : 0, left : 0, width: '100%', height: '100%'  } }}
