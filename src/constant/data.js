@@ -1,0 +1,2 @@
+export const activeLink = 'flex items-center gap-5 pl-2 pt-2 pb-2 rounded-lg text-white  text-[11px] m-2';
+export const normalLink = 'flex items-center gap-5 pl-2 pt-2 pb-2 rounded-lg text-[11px] text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';

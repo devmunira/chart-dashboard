@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+    margin: 0;
+    padding:0;
+    font-family: 'Young Serif', serif;
+    background-color: azure;
+}
+
+input:focus {
+    outline: none;
+}
+  
+input:focus-visible {
+    border: none;
+    transition: .5s;
+}
+
+.btn{
+    @apply bg-[#019267] text-white text-[10px] py-2 px-4 mr-3 shadow-sm rounded-sm
+}
+
+.list__item{
+    @apply block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white
+}
+
+.section 
+{
+    @apply w-[100%] my-5 mx-auto text-slate-600 min-h-screen bg-main-bg px-10
+}
+
+.conatiner {
+    @apply w-[95%] bg-slate-500 h-full
+}
+
+.paragraph {
+    @apply text-[12px]
+}
+
+.profile{
+    @apply w-[40px] h-auto rounded-full shadow-lg border-2 border-lime-500
+}
+
+.input-field{
+    @apply px-2 py-1 text-[10px] w-[43%] focus-visible:border-blue-300 focus-visible:border-1 duration-200 hover:border-blue-300 !border-1 !border-slate-600
+}
