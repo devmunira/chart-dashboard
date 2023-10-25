@@ -13,6 +13,8 @@ const App = () => {
   const settings = useSelector((state) => state.settings);
   const dispatch = useDispatch();
 
+  
+
   useEffect(() => {
     // Check the window width and update the activeMenu setting accordingly
     const handleResize = () => {

@@ -47,7 +47,7 @@ export default function SettingsMenu({layoutItem}) {
   }
 
   return (
-    <div>
+    <div className='z-50'>
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button className="inline-flex w-full bg-slate-400 p-2 rounded-sm justify-center  text-sm font-medium text-[#fff] 
@@ -81,14 +81,14 @@ export default function SettingsMenu({layoutItem}) {
             </div>
 
             <div className="px-1 py-1 ">
-              <Menu.Item>
+              {/* <Menu.Item> */}
                  <select className='input__field !text-[10px]' onChange={(e) => updateChart(e)}>
                     <option className='text-[10px]' value={'Bar Chart'}>-- Bar Chart --</option>
                     <option className='text-[10px]' value={'Box Whisker Plot'}>-- Box & Whisker Chart --</option>
                     <option className='text-[10px]' value={'Area Range Chart'}>-- Area Chart --</option>
                     <option className='text-[10px]' value={'Scater Chart'}>-- Sacter Chart --</option>
                  </select>
-              </Menu.Item>
+              {/* </Menu.Item> */}
             </div>
           </Menu.Items>
         </Transition>

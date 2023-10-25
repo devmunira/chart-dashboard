@@ -19,6 +19,7 @@ import BarChartComponent from '../components/charts/BarChart';
 import AreaRangeChart from '../components/charts/AreaRangeChart';
 import BoxWhiskerPlot from '../components/charts/BoxWhiskerPlot';
 import ScaterChart from '../components/charts/ScaterChart';
+import {RxDragHandleDots2} from "react-icons/rx"
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
@@ -28,6 +29,8 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const { toggle, setToggle } = useToggle();
   const [savedLayouts, setSavedLayouts] = useState([]);
+  const [isDrag, setIsDrag] = useState(false);
+  const [coursorPointer, setCoursorPointer] = useState(false);
 
   useEffect(() => {
     const savedLayouts = getLayouts();
@@ -111,6 +114,16 @@ const Dashboard = () => {
     localStorage.setItem("grid-layout", JSON.stringify(layouts));
   };
 
+  const handleDragAndDrop = () => {
+    setIsDrag(true)
+    setCoursorPointer(true)
+  }
+
+  const handleDragStop = () => {
+    setCoursorPointer(false)
+    setIsDrag(false)
+  }
+
   return (
     <div className='section pb-10'>
       <div className="pl-4 pt-16 md:pt-0  flex justify-start items-center gap-1 flex-wrap">
@@ -149,11 +162,14 @@ const Dashboard = () => {
         onLayoutChange={handleLayoutChange}
         className='flex justify-start flex-wrap;'
         compactionType={compactionType}
+        isDraggable={isDrag}
+        isResizable={true}
+        onDragStop={handleDragStop}
       >
         {[...layouts].reverse().map((layoutItem) => (
           <div key={layoutItem.i} className=" bg-slate-300 p-5 box-border m-2 h-full">
             <div className='flex justify-between items-center pb-1'>
-              <span>{layoutItem.i}</span>
+              <div><RxDragHandleDots2 onMouseOver={handleDragAndDrop} className={coursorPointer ? "cursor-pointer" : ""}></RxDragHandleDots2></div>
               <div><SettingsMenu layoutItem={layoutItem}></SettingsMenu></div>
             </div>
             {layoutItem.item === 'Bar Chart' && (
