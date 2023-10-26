@@ -166,7 +166,6 @@ const Dashboard = () => {
         isDraggable={isDrag}
         isResizable={true}
         onDragStop={handleDragStop}
-        
       >
         {[...layouts].reverse().map((layoutItem) => (
           <div key={layoutItem.i} className=" bg-slate-300 p-5 box-border m-2 h-full">

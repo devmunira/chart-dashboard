@@ -11,7 +11,21 @@ export default function SettingsMenu({layoutItem}) {
   
   const updateData = (e) => {
     e.preventDefault();
+    console.log(layouts)
       const Updatedlayout = layouts.filter((item) => item.i !== layoutItem.i);
+
+      let count = 1 ;
+
+      for (let i = 0; i < Updatedlayout.length; i = i + 2) {
+        console.log(Updatedlayout)
+        let isEven = count % 2;
+
+        if(Updatedlayout[i])     Updatedlayout[i].x = isEven ? 0 : 1
+        if(Updatedlayout[i + 1]) Updatedlayout[i + 1].x = isEven ? 0 : 1
+
+        count++
+      }
+
       // Update State
       dispatch(layoutUpdate([...Updatedlayout]))
   }
