@@ -97,6 +97,7 @@ const Dashboard = () => {
   };
 
   const shuffleLayout = () => {
+    console.log('Shuffle Layout button clicked');
     const shuffledLayout = [...layouts];
     for (let i = shuffledLayout.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -165,11 +166,12 @@ const Dashboard = () => {
         isDraggable={isDrag}
         isResizable={true}
         onDragStop={handleDragStop}
+        
       >
         {[...layouts].reverse().map((layoutItem) => (
           <div key={layoutItem.i} className=" bg-slate-300 p-5 box-border m-2 h-full">
             <div className='flex justify-between items-center pb-1'>
-              <div><RxDragHandleDots2 onMouseOver={handleDragAndDrop} className={coursorPointer ? "cursor-pointer" : ""}></RxDragHandleDots2></div>
+              <div><RxDragHandleDots2 onMouseEnter={handleDragAndDrop} onMouseLeave={handleDragStop} className={coursorPointer ? "cursor-pointer" : ""}></RxDragHandleDots2></div>
               <div><SettingsMenu layoutItem={layoutItem}></SettingsMenu></div>
             </div>
             {layoutItem.item === 'Bar Chart' && (

@@ -18,9 +18,7 @@ const useChartUpdate = ({content , type , chartRef , fromDashboardComponent}) =>
 
   const updateData = (e) => {
     e.preventDefault();
-    console.log(fromDashboardComponent , content , 'from')
     if(!fromDashboardComponent){
-      console.log('not')
       const updatedChart = {...content}
       updatedChart.title.text = filter.title
       updatedChart.subtitle.text = filter.subtitle
@@ -31,13 +29,15 @@ const useChartUpdate = ({content , type , chartRef , fromDashboardComponent}) =>
       layoutupdatedChart.data.title.text = filter.title
       layoutupdatedChart.data.subtitle.text = filter.subtitle;
       
-      console.log(layoutupdatedChart , 'lay')
-      const Updatedlayout = layouts.map((item) => {
+      const Updatedlayout = [...layouts]
+      Updatedlayout.map((item) => {
+        console.log(item.i , content.i)
         if(item.i === content.i){
           item = {...layoutupdatedChart}
         }
         return item;
       });
+      console.log(Updatedlayout)
       // Update State
       dispatch(layoutUpdate([...Updatedlayout]))
     }

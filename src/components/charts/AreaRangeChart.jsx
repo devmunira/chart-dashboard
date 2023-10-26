@@ -10,7 +10,6 @@ HighchartsMore(Highcharts);
 const AreaRangeChart = ({fromDashboardComponent = false , content = {}}) => {
   const { areaChart } = useSelector(state => state.charts)
   const chartRef = useRef(null);
-
   const {filter, setFilter , updateData} = useChartUpdate({content : fromDashboardComponent ? content : areaChart, type : 'areaChart' , chartRef , fromDashboardComponent});
   return (
     <>
